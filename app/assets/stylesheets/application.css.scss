@@ -4,3 +4,15 @@
 @import "bootstrap";
 
 @import "bootswatch/sandstone/bootswatch";
+
+.navbar-right {
+  margin: 15px;
+}
+
+.navbar-right a {
+  color: #6b9430;
+}
+
+.navbar-right a:hover {
+  color: white;
+}
