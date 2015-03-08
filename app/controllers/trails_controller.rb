@@ -23,5 +23,29 @@ class TrailsController < ApplicationController
   end
 
   def edit
+    @trail = Trail.find(params[:id])
   end
+
+  def update
+    @trail = Trail.find(params[:id])
+    if @trail.update_attributes(params.require(:trail).permit(:title, :state, :body))
+      flash[:notice] = "Trail was updated."
+      redirect_to @trail
+    else
+      flash[:error] = "There was an error updating the trail. Please try again."
+      render :edit
+    end
+  end
+
+  def destroy
+    @trail = Trail.find(params[:id])
+    if @trail.destroy
+      flash[:notice] = "Trail was deleted successfully."
+      redirect_to trails_path
+    else
+      flash[:error] ="There was an error deleting the trail."
+      render :show
+    end
+  end
+
 end
