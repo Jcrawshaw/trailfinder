@@ -1,0 +1,10 @@
+<h1>All Trails</h1>
+<% @trails.each do |trail| %>
+  <div class="media">
+    <div class="media-body">
+      <div class="media-heading">
+        <%= link_to trail.title, trail %>
+      </div>
+    </div>
+  </div>
+<% end %>

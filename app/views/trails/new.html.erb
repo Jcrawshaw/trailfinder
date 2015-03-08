@@ -1,0 +1,23 @@
+<h1>Add a New Trail</h1>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for @trail do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter trail name" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :state %>
+        <%= f.text_field :state, class: 'form-control', placeholder: "Enter trail location (U.S. State)" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :body %>
+        <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter trail description" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Save", class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>
