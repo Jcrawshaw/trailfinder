@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :trails
   has_many :posts
+
+  mount_uploader :avatar, AvatarUploader
 end

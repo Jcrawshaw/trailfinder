@@ -7,7 +7,11 @@
     <% @posts.each do |post| %>
       <div class="media">
         <div class="media-body">
-          <%= post.body %>
+          <small>
+            <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
+            submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %>
+          </small>
+          <p><%= link_to truncate(post.body, length: 50, separator: ' ', omission: '...(continued'), [@trail, post]  %></p>
         </div>
       </div>
       <% end %>
@@ -18,6 +22,7 @@
 </div>
     
   
-
-<%= link_to "Edit", edit_trail_path(@trail), class: 'btn btn-success' %>
-<%= link_to "Delete Trail", @trail, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete?' } %>
+<div class="container">
+  <%= link_to "Edit", edit_trail_path(@trail), class: 'btn btn-success btn-sm' %>
+  <%= link_to "Delete Trail", @trail, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure you want to delete?' } %>
+</div>
