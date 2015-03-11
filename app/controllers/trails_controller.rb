@@ -13,7 +13,7 @@ class TrailsController < ApplicationController
   end
 
   def create
-    @trail = Trail.new(params.require(:trail).permit(:title, :state, :body))
+    @trail = Trail.new(params.require(:trail).permit(:title, :state, :body, :images))
     if @trail.save
       flash[:notice] = "Trail was saved."
       redirect_to @trail
@@ -29,7 +29,7 @@ class TrailsController < ApplicationController
 
   def update
     @trail = Trail.find(params[:id])
-    if @trail.update_attributes(params.require(:trail).permit(:title, :state, :body))
+    if @trail.update_attributes(params.require(:trail).permit(:title, :state, :body, :images))
       flash[:notice] = "Trail was updated."
       redirect_to @trail
     else

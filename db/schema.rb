@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310155115) do
+ActiveRecord::Schema.define(version: 20150311161439) do
 
   create_table "posts", force: true do |t|
     t.text     "body"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150310155115) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "images"
   end
 
   add_index "trails", ["user_id"], name: "index_trails_on_user_id"

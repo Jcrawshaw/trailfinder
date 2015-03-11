@@ -15,6 +15,17 @@
         <%= f.label :body %>
         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter trail description" %>
       </div>
+      <% if @trail.images? %>
+        <div class="form-group">
+          <p>Current image</p>
+          <%= image_tag( @trail.images.original.url ) %>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :images %>
+        <%= f.hidden_field :images_cache %>
+      </div>
       <div class="form-group">
         <%= f.submit "Save", class: 'btn btn-success' %>
       </div>

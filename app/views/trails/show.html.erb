@@ -1,5 +1,6 @@
 <h1><%= @trail.title %></h1>
 <h3><%= @trail.state %></h3>
+<%= image_tag(@trail.images.original.url) if @trail.images? %>
 <p><%= @trail.body %></p>
 <div class="row">
   <div class="col-md-8">
