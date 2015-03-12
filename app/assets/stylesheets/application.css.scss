@@ -20,5 +20,27 @@
 .jumbotron {
   color: white;
   background-image: image-url('foresttrail.jpg');
+  background-size: cover;
+  
 }
 
+.main-header {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2px, 0, 1px, 8px;
+
+  position: relative;
+  left: -65px;
+  top: -40px;
+  }
+
+.sub-header {
+  text-align: center;
+}
+
+.style-image {
+  display: block;
+  margin-left: 2em;
+  margin-right: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+}
