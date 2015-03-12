@@ -1,2 +1,28 @@
 <h1>TrailFinder</h1>
 <p>Find Trails. Post Trails. Run Trails.</p>
+<br/>
+<div class="jumbotron">
+  <div class="container">
+    <p>TrailFinder is a resource for sharing and discovering new trails to run!</p>
+      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-success' %> or 
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success' %> today!
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag("croomsign.jpg", size: '150') %>
+    <h2>Find a Trail to Run</h2>
+    <p>Search by state to find new running trails.</p>
+  </div>
+  <div class="col-md-4">
+    <%= image_tag("starkey.jpg", size: '150') %>
+    <h2>Post Trails to Run</h2>
+    <p>Your favorite trail isn't listed? Add it to TrailFinder.</p>
+  </div>
+  <div class="col-md-4">
+    <%= image_tag("falcon.jpg", size: '150') %>
+    <h2>Connect with Trail Runners</h2>
+    <p>Post on existing trails to add photos, share your experience, and connect with others.</p>
+  </div>
+</div>
