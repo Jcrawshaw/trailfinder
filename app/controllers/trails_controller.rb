@@ -1,11 +1,21 @@
 class TrailsController < ApplicationController
   def index
     @trails = Trail.all
+    @hash = Gmaps4rails.build_markers(@trails) do |trail, marker|
+      marker.lat trail.latitude
+      marker.lng trail.longitude
+      marker.title trail.title
+    end
   end
 
   def show
     @trail = Trail.find(params[:id])
     @posts = @trail.posts
+    @hash = Gmaps4rails.build_markers(@trail) do |trail, marker|
+      marker.lat trail.latitude
+      marker.lng trail.longitude
+      marker.title trail.title
+    end
   end
 
   def new
@@ -13,7 +23,7 @@ class TrailsController < ApplicationController
   end
 
   def create
-    @trail = Trail.new(params.require(:trail).permit(:title, :state, :body, :images))
+    @trail = Trail.new(params.require(:trail).permit(:title, :state, :address, :latitude, :longitude, :body, :images))
     if @trail.save
       flash[:notice] = "Trail was saved."
       redirect_to @trail
@@ -29,7 +39,7 @@ class TrailsController < ApplicationController
 
   def update
     @trail = Trail.find(params[:id])
-    if @trail.update_attributes(params.require(:trail).permit(:title, :state, :body, :images))
+    if @trail.update_attributes(params.require(:trail).permit(:title, :state, :address, :latitude, :longitude, :body, :images))
       flash[:notice] = "Trail was updated."
       redirect_to @trail
     else

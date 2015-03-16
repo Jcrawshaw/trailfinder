@@ -117,6 +117,8 @@ GEM
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
     formatador (0.2.5)
+    geocoder (1.2.7)
+    gmaps4rails (2.1.2)
     hike (1.2.3)
     i18n (0.7.0)
     inflecto (0.0.2)
@@ -246,6 +248,8 @@ DEPENDENCIES
   factory_girl_rails
   figaro (= 1.0)
   fog
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick

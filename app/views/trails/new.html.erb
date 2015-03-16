@@ -12,6 +12,10 @@
         <%= f.text_field :state, class: 'form-control', placeholder: "Enter trail location (U.S. State)" %>
       </div>
       <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_field :address, class: 'form-control', placeholder: "Enter address of trailhead (or park)." %>
+      </div>
+      <div class="form-group">
         <%= f.label :description %>
         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter trail description" %>
       </div>
