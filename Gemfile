@@ -32,6 +32,7 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.1.0'
+  gem 'shoulda'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'better_errors'
