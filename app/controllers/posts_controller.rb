@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    authorize @posts
   end
 
   def show
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
   def new
     @trail = Trail.find(params[:trail_id])
     @post = Post.new
+    authorize @post
   end
 
 def create
@@ -18,7 +20,8 @@ def create
     @post = current_user.posts.build(params.require(:post).permit(:body))
     @post.trail = @trail
     @new_post = Post.new
-    
+    authorize @post
+
     if @post.save
       flash[:notice] = "Post was saved!"
       redirect_to @trail
