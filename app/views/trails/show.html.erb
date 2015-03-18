@@ -42,8 +42,10 @@
     
   
 <div class="container">
-  <% if policy(Trail.new).edit? %>
+  <% if policy(@trail).edit? %>
     <%= link_to "Edit", edit_trail_path(@trail), class: 'btn btn-success btn-sm' %>
+  <% end %>
+  <% if policy(@trail).destroy? %>
     <%= link_to "Delete Trail", @trail, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure you want to delete?' } %>
   <% end %>
 </div>

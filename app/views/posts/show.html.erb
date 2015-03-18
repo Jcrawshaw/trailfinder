@@ -5,5 +5,8 @@
       submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.name %>
     </small>
     <p><%= @post.body %></p>
+    <% if policy(@post).edit? %>
+      <%= link_to "Edit", edit_trail_post_path, class: 'btn btn-primary btn-small' %>
+      <% end %>
   </div>
 </div>

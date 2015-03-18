@@ -26,7 +26,7 @@ class TrailsController < ApplicationController
   end
 
   def create
-    @trail = Trail.new(params.require(:trail).permit(:title, :state, :address, :latitude, :longitude, :body, :images))
+    @trail = current_user.trails.build(params.require(:trail).permit(:title, :state, :address, :latitude, :longitude, :body, :images))
     authorize @trail
     if @trail.save
       flash[:notice] = "Trail was saved."
