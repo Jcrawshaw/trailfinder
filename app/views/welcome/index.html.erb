@@ -19,16 +19,20 @@
   <div class="col-md-4">
     <%= image_tag("croomsign.jpg", :class => "style-image", size: '200') %>
     <h2>Find a Trail to Run</h2>
-    <p>Search by state to find new running trails.</p>
+    <p>TrailFinder is a runner's resource to discover off road road trails for running. Trailfinder is created and powered by trail runners. Browse our site, or search by state or name of trail to find what you are looking for. Browse all trails now:</p>
+    <%= link_to "All Trails", trails_path, class: 'btn btn-success' %>
   </div>
   <div class="col-md-4">
     <%= image_tag("starkey3.jpg", :class => "style-image", size: '200') %>
     <h2>Post Trails to Run</h2>
-    <p>Your favorite trail isn't listed? Add it to TrailFinder.</p>
+    <p>Your favorite trail isn't listed? Sign up for a free account, and add them to our database. You can even post photos and link a map to help other runners find your spot. Planning your next off road run? Mark trails as 'Favorite' to find them even faster. Sign up now to start creating your next trail run. </p>
+    <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success' %>
   </div>
   <div class="col-md-4">
     <%= image_tag("falcon3.jpg", :class => "style-image", size: '200') %>
     <h2>Connect with Trail Runners</h2>
-    <p>Post on existing trails to add photos, share your experience, and connect with others.</p>
+    <p>Had an adventure on a great trail? Post on existing trails to add photos, share your experience, and connect with others. Sign up or sign in to begin your next adventure...</p>
+    <%= link_to "Sign In", new_user_session_path, class: 'btn btn-success' %> or 
+    <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success' %>
   </div>
 </div>
