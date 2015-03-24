@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   def show
     @trail = Trail.find(params[:trail_id])
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @new_comment = Comment.new
   end
 
   def new
@@ -32,5 +34,18 @@ def create
   end
 
   def edit
+  end
+
+  def destroy
+    @trail = Trail.find(params[:trail_id])
+    @post = @trail.posts.find(params[:id])
+
+    authorize @post
+    if @post.destroy
+      flash[:notice] = "Post was deleted."
+    else
+      flash[:notice] = "Error deleting post. Try again."
+    end
+    redirect_to @trail
   end
 end

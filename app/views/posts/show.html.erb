@@ -5,8 +5,21 @@
       submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.name %>
     </small>
     <p><%= @post.body %></p>
+    <%= link_to "Back to Trail", trail_path(@trail), class: 'btn btn-success btn-small' %>
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_trail_post_path, class: 'btn btn-primary btn-small' %>
-      <% end %>
+    <% end %>
   </div>
 </div>
+<h3>Comments:</h3>
+    <div class='comments'>
+      <%= render partial: 'comments/comment', collection: @comments %>
+    </div>
+ 
+<h3>Add a comment:</h3>
+  <div class="comments">
+    <%= render partial: 'comments/form' %>
+  </div>
+</div>
+
+    

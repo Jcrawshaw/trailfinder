@@ -1,0 +1,14 @@
+<%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
+    <%= link_to '#', class: 'pull-left' do %>
+
+    <% end %>
+    <div class="media-body">
+      <small>
+        by <%= comment.user.name if comment.user %> on <%= comment.created_at %>
+        <% if policy(comment).destroy? %>
+        | <%= link_to "Delete", [ comment.post, comment], method: :delete %>
+        <% end %>
+      </small>
+    <p><%= comment.body %></p>
+  </div>
+<% end %>
