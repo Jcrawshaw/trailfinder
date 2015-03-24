@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @favorited_trails = current_user.favorited_trails
+  end
+
   private
 
   def user_params

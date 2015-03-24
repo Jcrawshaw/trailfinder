@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :trails
   has_many :posts
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_trails, through: :favorites, source: :trail
 
   mount_uploader :avatar, AvatarUploader
 
@@ -16,6 +18,10 @@ class User < ActiveRecord::Base
 
   def moderator?
     role == 'moderator'
+  end
+
+  def favorited(trail)
+    favorites.where(trail_id: trail.id).first
   end
   
 end

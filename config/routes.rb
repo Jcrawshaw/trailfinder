@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
+  get 'users/show'
 
   resources :trails do
     resources :posts
   end
+
+  resources :trails, only: [] do
+    resources :favorites, only: [:create, :destroy]
+  end
+  
   resources :posts, only: [] do
     resources :comments
   end
 
 
   devise_for :users
-  resources :users, only: [:update]
+  resources :users, only: [:update, :show]
 
   get 'welcome/index'
 
