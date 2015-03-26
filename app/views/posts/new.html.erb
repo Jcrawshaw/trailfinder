@@ -6,6 +6,12 @@
         <%= f.label :post %>
         <%= f.text_field :body, class: 'form-control', placeholder: "Enter your trail post." %>
       </div>
+      <%= f.fields_for :post_attachments do |p| %>
+        <div class="form-group">
+          <%= p.label :gallery %><br>
+          <%= p.file_field :gallery, :multiple => true, name: "post_attachments[gallery][]" %>
+        </div>
+      <% end %>
       <%= f.submit "Save", class: 'btn btn-success' %>
     <% end %>
    </div>
