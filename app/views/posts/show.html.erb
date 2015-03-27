@@ -6,11 +6,15 @@
     </small>
     <p><%= @post.body %></p>
     <% @post_attachments.each do |p| %>
-      <%= image_tag p.gallery.medium.url %>
+      <div class="col-sm-4">
+        <div class="image">
+          <%= image_tag p.gallery.medium.url %>
+        </div>
+      </div>
     <% end %>
-    <%= link_to "Back to Trail", trail_path(@trail), class: 'btn btn-success btn-small' %>
+    <%= link_to "Back to Trail", trail_path(@trail), class: 'btn btn-success btn-sm' %>
     <% if policy(@post).edit? %>
-      <%= link_to "Edit", edit_trail_post_path, class: 'btn btn-primary btn-small' %>
+      <%= link_to "Edit", edit_trail_post_path, class: 'btn btn-primary btn-sm' %>
     <% end %>
   </div>
 </div>
