@@ -16,6 +16,9 @@
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_trail_post_path, class: 'btn btn-primary btn-sm' %>
     <% end %>
+    <% if policy(@post).destroy? %>
+    <%= link_to "Delete", trail_post_path, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure you want to delete?' } %>
+  <% end %>
   </div>
 </div>
 <h3>Comments:</h3>

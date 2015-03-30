@@ -31,7 +31,7 @@ def create
         @post_attachment = @post.post_attachments.create!(:gallery => a, :post_id => @post.id)
       end
       flash[:notice] = "Post was saved!"
-      redirect_to @trail
+      redirect_to trail_post_path
     else
       flash[:error] = "Error creating the post. Please try again."
       render :new
@@ -39,6 +39,29 @@ def create
   end
 
   def edit
+    @trail = Trail.find(params[:trail_id])
+    @post = @trail.posts.find(params[:id])
+   
+    # @post_attachment = @post.post_attachments.build
+    authorize @post
+  end
+
+  def update
+    @trail = Trail.find(params[:trail_id])
+    @post = @trail.posts.find(params[:id])
+   
+    authorize @post
+
+    if @post.update_attributes(params.require(:post).permit(:body, post_attachments_attributes: [:id, :post_id, :gallery]))
+      params[:post_attachments]['gallery'].each do |a|
+        @post_attachment = @post.post_attachments.create!(:gallery => a, :post_id => @post.id)
+      end
+      flash[:notice] = "Post was updated!"
+      redirect_to trail_post_path
+    else
+      flash[:error] = "Error updating the post. Please try again."
+      render :new
+    end
   end
 
   def destroy
