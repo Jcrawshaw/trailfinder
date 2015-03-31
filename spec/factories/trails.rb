@@ -1,9 +1,10 @@
 FactoryGirl.define do
   factory :trail do
-    title "MyString"
-body "MyText"
-state "MyString"
-user nil
+    title "Trail Title"
+    body "Description of Trail"
+    state "Florida"
+    user
+
   end
 
 end
