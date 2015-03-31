@@ -3,7 +3,7 @@ FactoryGirl.define do
     name "Sammy Palamar"
     sequence(:email, 100) { |n| "person#{n}@example.com" }
     password "helloworld"
-    password_confirmation "hellowoworld"
+    password_confirmation "helloworld"
     confirmed_at Time.now
   end
 
