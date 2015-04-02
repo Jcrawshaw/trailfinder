@@ -1,11 +1,10 @@
 class TrailsController < ApplicationController
   def index
-    @trails = Trail.all
-    authorize @trails
-    @hash = Gmaps4rails.build_markers(@trails) do |trail, marker|
-      marker.lat trail.latitude
-      marker.lng trail.longitude
-      marker.title trail.title
+    # @trails = Trail.all
+    if params[:search]
+      @trails = Trail.search(params[:search])
+    else
+      @trails = Trail.all
     end
   end
 
@@ -64,6 +63,10 @@ class TrailsController < ApplicationController
       render :show
     end
   end
+
+  # def search
+  #     @trails = Trail.search(params[:search]).order("state DESC")
+  # end
 
   # private
 

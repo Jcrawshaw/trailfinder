@@ -1,4 +1,15 @@
 <h1>All Trails</h1>
+<div class="row">
+  <div class="col-md-4">
+    <%= form_tag(trails_path, :method => "get", id: "search-form") do %>
+      <div class="form-group">
+        <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Search for Trails" %>
+        <%= submit_tag "Search by State", class: 'btn btn-success btn-sm', :name => nil %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <% @trails.each do |trail| %>
   <div class="media">
     <div class="media-body">
@@ -11,3 +22,4 @@
 <% if policy(Trail.new).create? %>
   <%= link_to "Add New Trail", new_trail_path(@trail), class: 'btn btn-primary' %>
 <% end %>
+

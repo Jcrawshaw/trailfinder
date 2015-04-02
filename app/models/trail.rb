@@ -6,4 +6,11 @@ class Trail < ActiveRecord::Base
 
   geocoded_by :address
   after_validation :geocode
+
+  def self.search(search)
+    where("state LIKE ?", "%#{search}%")
+    # where("title LIKE ?", "%#{search}%")
+    # where("address LIKE ?", "%#{search}%")
+  end
+
 end
