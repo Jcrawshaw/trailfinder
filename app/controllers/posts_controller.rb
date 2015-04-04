@@ -42,7 +42,7 @@ def create
     @trail = Trail.find(params[:trail_id])
     @post = @trail.posts.find(params[:id])
    
-    # @post_attachment = @post.post_attachments.build
+    # @post_attachment = @post.post_attachments
     authorize @post
   end
 
