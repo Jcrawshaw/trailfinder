@@ -31,7 +31,7 @@ def create
         @post_attachment = @post.post_attachments.create!(:gallery => a, :post_id => @post.id)
       end
       flash[:notice] = "Post was saved!"
-      redirect_to trail_post_path
+      redirect_to @post.trail
     else
       flash[:error] = "Error creating the post. Please try again."
       render :new
@@ -57,7 +57,7 @@ def create
         @post_attachment = @post.post_attachments.create!(:gallery => a, :post_id => @post.id)
       end
       flash[:notice] = "Post was updated!"
-      redirect_to trail_post_path
+      redirect_to @post.trail
     else
       flash[:error] = "Error updating the post. Please try again."
       render :new
