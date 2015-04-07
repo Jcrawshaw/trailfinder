@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   
   resources :posts, only: [] do
     resources :comments
-    resources :attachments, only: [:destroy, :update]
 # post_attachment_path( @post, attachment_id)
 # => DELETE /posts/123/attachments/234 
   end
+  resources :post_attachments, only: [:destroy, :create]
 
   devise_for :users
   resources :users, only: [:update, :show]
