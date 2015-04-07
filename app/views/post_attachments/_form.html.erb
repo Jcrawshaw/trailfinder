@@ -1,0 +1,8 @@
+<%= image_tag @post_attachment.gallery %>
+<%= form_for(@post_attachment) do |f| %>
+  <div class="field">
+    <%= f.label :gallery %><br>
+    <%= f.file_field :gallery %>
+  </div>
+  <%= f.submit "Save", class: 'btn btn-success' %>
+  <% end %>
