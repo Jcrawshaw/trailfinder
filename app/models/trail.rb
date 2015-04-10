@@ -8,9 +8,7 @@ class Trail < ActiveRecord::Base
   after_validation :geocode
 
   def self.search(search)
-    where("state LIKE ?", "%#{search}%")
-    # where("title LIKE ?", "%#{search}%")
-    # where("address LIKE ?", "%#{search}%")
+    where("state LIKE ? OR title LIKE ? OR address LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
 end

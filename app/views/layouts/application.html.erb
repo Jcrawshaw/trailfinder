@@ -23,6 +23,14 @@
             <% if current_user %>
             <li><%= link_to "My Favorites", users_show_path %></li>
             <% end %>
+            <form class="navbar-form navbar-left" role="search">
+            <%= form_tag(trails_path, :method => "get", id: "search-form") do %>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Search for Trails" %>
+              <%= submit_tag "Search", class: 'btn btn-default', :name => nil %>
+            </div>
+          <% end %>
+        </form>
           </ul>
 
           <ul class="nav navbar-nav navbar-right" id="bar"> 
