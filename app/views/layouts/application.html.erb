@@ -14,10 +14,18 @@
   <div class="container">
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand text-uppercase"><%= link_to "TRAILFINDER", root_path %></div>
+        </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-    
           <ul class="nav navbar-nav">
-            <li><%= link_to "TrailFinder", root_path %></li>
+            
             <li><%= link_to "About", welcome_about_path %></li>
             <li><%= link_to "All Trails", trails_path %></li>
             <% if current_user %>

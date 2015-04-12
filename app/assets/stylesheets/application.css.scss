@@ -3,7 +3,17 @@
 
 @import "bootstrap";
 
+
 @import "bootswatch/sandstone/bootswatch";
+
+.navbar-brand a {
+  color: #6b9430;
+
+}
+
+.navbar-brand a:hover {
+  color: white;
+}
 
 .navbar-right {
   margin: 15px;
@@ -23,6 +33,12 @@
   background-image: image-url('foresttrail.jpg');
   background-size: cover;
   
+}
+
+@media (max-width: 767px) {
+  .jumbotron {
+    display: none;
+  }
 }
 
 .main-header {
