@@ -11,13 +11,18 @@
     </div>
   </div>
   <h3><%= @trail.state %></h3>
-  <div class="col-md-9">
-      <div class="image">
-        <%= image_tag(@trail.images.original.url) if @trail.images? %>
-      </div>
-  </div></br>
-  <h4><%= @trail.body %></h4>
-  <h5><%= @trail.address %></h5>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="image">
+          <%= image_tag(@trail.images.original.url, class: 'img-responsive') if @trail.images? %>
+        </div>
+      </div></br>
+    <div class="col-md-3">
+      <h4><%= @trail.body %></h4>
+      <h5><%= @trail.address %></h5>
+    </div>
+  </div>
 
   <div class="container">
   <div style='width: 400px;'>
