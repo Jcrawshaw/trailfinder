@@ -4,6 +4,8 @@ class Trail < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   mount_uploader :images, ImagesUploader
 
+  default_scope { order('state ASC') }
+
   geocoded_by :address
   after_validation :geocode
 
