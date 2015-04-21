@@ -1,5 +1,9 @@
+<% if params[:search] %>
+<h1>Search Results for <%= params[:search] %></h1>
+<% else %>
 <h1>All Trails</h1>
-<div class="row">
+<% end %>
+<!-- <div class="row">
   <div class="col-md-4">
     <%= form_tag(trails_path, :method => "get", id: "search-form") do %>
       <div class="form-group">
@@ -8,7 +12,7 @@
       </div>
     <% end %>
   </div>
-</div>
+</div> -->
 
 <% @trails.each do |trail| %>
   <div class="media">
