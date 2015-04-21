@@ -10,7 +10,7 @@ class Trail < ActiveRecord::Base
   after_validation :geocode
 
   def self.search(search)
-    where("state LIKE ? OR title LIKE ? OR address LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%")
+    where("LOWER(state) LIKE ? OR LOWER(title) LIKE ? OR LOWER(address) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%")
   end
 
 end
