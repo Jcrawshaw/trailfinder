@@ -29,6 +29,7 @@
     <h3>Find it!</h3>
     <div id="map" style='width: 400px; height: 200px;'></div>
   </div>
+  
   <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {maxZoom:10, minZoom:5}, internal: {id: 'map'}}, function(){
@@ -37,6 +38,7 @@
     handler.fitMapToBounds();
   });
   </script>
+
   </div>
 </div>
 <div class="container">
