@@ -9,7 +9,8 @@
       <% @post_attachments.each do |p| %>
         <div class="col-sm-4">
           <div class="image">
-            <%=  link_to image_tag(p.gallery.medium.url), p.gallery.url,  :data => { :colorbox => true, :colorbox_height => '400px', :colorbox_width => '400px', :colorbox_iframe => true } %>
+            <%#=  link_to image_tag(p.gallery.medium.url), p.gallery.url,  :data => { :colorbox => true, :colorbox_height => '400px', :colorbox_width => '400px', :colorbox_iframe => true } %>
+            <%=  link_to image_tag(p.gallery.medium.url), p.gallery.url, class: 'trailimage', data: { colorbox: true, colorbox_height: '300px', colorbox_width: '300px' } %>
             <%#= link_to "Edit Photos", edit_post_attachment_path(p), class: 'btn btn-primary btn-xs' %>       
           </div>
         </div>

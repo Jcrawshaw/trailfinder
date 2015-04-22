@@ -13,4 +13,13 @@ class Trail < ActiveRecord::Base
     where("LOWER(state) LIKE ? OR LOWER(title) LIKE ? OR LOWER(address) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%")
   end
 
+  # db: "Florida"
+  # search: "florida"
+
+  # 1. "normalize" the db value (before_save name.downcase)
+  #     where ( state: search.downcase )
+  # 2. ILIKE - case-independent search 
+  #       Sqlite vs Postgres
+  
+
 end
