@@ -29,7 +29,7 @@ def create
     if @post.save
       params[:post_attachments]['gallery'].each do |a|
         @post_attachment = @post.post_attachments.create!(:gallery => a, :post_id => @post.id)
-      end
+      end unless params[:post_attachments].blank?
       flash[:notice] = "Post was saved!"
       redirect_to @post.trail
     else
@@ -55,7 +55,7 @@ def create
     if @post.update_attributes(params.require(:post).permit(:body, post_attachments_attributes: [:id, :post_id, :gallery]))
       params[:post_attachments]['gallery'].each do |a|
         @post_attachment = @post.post_attachments.create!(:gallery => a, :post_id => @post.id)
-      end
+      end unless params[:post_attachments].blank?
       flash[:notice] = "Post was updated!"
       redirect_to @post.trail
     else
