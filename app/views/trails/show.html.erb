@@ -11,6 +11,10 @@
     </div>
   </div>
   <h3><%= @trail.state %></h3>
+  <small>
+        <%= image_tag(@trail.user.avatar.tiny.url) if @trail.user.avatar? %>
+        submitted <%= time_ago_in_words(@trail.created_at) %> ago by <%= @trail.user.name %>
+      </small>
   <div class="container">
     <div class="row">
       <div class="col-md-9">
