@@ -17,7 +17,7 @@
 <% @trails.each do |trail| %>
   <div class="media">
     <div class="media-body">
-      <div class="media-heading">
+      <div class="media-heading" data-no-turbolink>
         <%= link_to trail.title, trail %> - <%= trail.state %>
       </div>
     </div>
