@@ -23,7 +23,15 @@
     </div>
   </div>
 <% end %>
-<% if policy(Trail.new).create? %>
-  <%= link_to "Add New Trail", new_trail_path(@trail), class: 'btn btn-primary' %>
-<% end %>
+<div class="row">
+  <div class="col-md-8">
+    <% if policy(Trail.new).create? %>
+      <%= link_to "Add New Trail", new_trail_path(@trail), class: 'btn btn-primary' %>
+    <% else %>
+      <h3>Want to contribute a trail?</h3>
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success' %> or
+      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
 
